@@ -432,6 +432,8 @@
 
       const hideMobileKeyboardOnReturn = async(element) => {
         await element.addEventListener("keypress", (event) => {
+          console.log("Element" + element);
+          console.log("Element Value" + element.value);
           if (event.key === "Enter" || event.keyCode === 13) {
             event.preventDefault();
             // document.activeElement.blur();
