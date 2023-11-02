@@ -311,6 +311,9 @@
         .catch((err) => console.error("An error occurred: " + err));
     </script>
     <script>
+      <div>
+      <input type="text" class="container" placeholder="Type your message..."></input>
+      </div>
       $("body").on("DOMNodeInserted", function (e) {
         if ($(e.target).hasClass("ac-adaptiveCard")) {
           let originalImages = [
