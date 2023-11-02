@@ -423,52 +423,23 @@ e.stopPropagation();
 } catch (e) {}
 });
 
-const handleKeyPress = (event) => {
-if (event.key === "Enter") {
-event.preventDefault();
-inputRef.current.blur();
-}
-};
 
-// const hideMobileKeyboardOnReturn = (element) => {
-// element.addEventListener("keypress", (event) => {
-// if (event.key === "Enter" || event.keyCode === 13) {
-// event.preventDefault();
-// // document.activeElement.blur();
-// // alert("You pressed Enter. You typed: " + element.value);
-// // let inputbox = document.getElementsByClassName("webchat__send-box-text-box__input");
-// let length = document.getElementsByClassName(
-// "webchat__bubble__content"
-// ).length;
-// let p = document.getElementsByClassName("webchat__bubble__content")[
-// length - 1
-// ];
-// $(element).trigger("blur");
-// console.log(p);
 
-// p.focus();
-// // navigator.virtualKeyboard.hide();
-
-// // const shiftPressEvent = new KeyboardEvent("keydown", {
-// // key: "Enter",
-// // shiftKey: true, // Simulate the Shift key
-// // });
-// // element.dispatchEvent(shiftPressEvent);
-// // console.log("focus on bubble chat and added keypress event");
-// }
-// });
-// };
-
-const hideMobileKeyboardOnReturn = (event) => {
+const hideMobileKeyboardOnReturn = (element) => {
+    element.addEventListener("keypress", (event) => {
     if (event.key === "Enter" || event.keyCode === 13) {
     event.preventDefault();
     // document.activeElement.blur();
-    // alert("You pressed Enter. You typed: " + element.value);
+    console.log("Element Value:" +element);
+    alert("You pressed Enter. You typed: " + element.value);
     // let inputbox = document.getElementsByClassName("webchat__send-box-text-box__input");
-    // let length = document.getElementsByClassName(
-    // "webchat__bubble__content"
-    // ).length;
-    let p = document.getElementsByClassName("webchat__icon-button__shade")
+    let length = document.getElementsByClassName(
+    "webchat__bubble__content"
+    ).length;
+    let p = document.getElementsByClassName("webchat__bubble__content")[
+    length - 1
+    ];
+    // $(element).trigger("blur");
     console.log(p);
 
     p.focus();
@@ -481,14 +452,50 @@ const hideMobileKeyboardOnReturn = (event) => {
     // element.dispatchEvent(shiftPressEvent);
     // console.log("focus on bubble chat and added keypress event");
     }
+    });
 };
+
+// const handleKeyPress = (event) => {
+// if (event.key === "Enter") {
+// event.preventDefault();
+// inputRef.current.blur();
+// }
+// };
+
+// const hideMobileKeyboardOnReturn = (event) => {
+//     if (event.key === "Enter" || event.keyCode === 13) {
+//     event.preventDefault();
+//     let p = document.getElementsByClassName("webchat__icon-button__shade")
+//     console.log(p);
+//     p.focus();
+//     }
+// };
+
+// const hideMobileKeyboardOnReturn = (event) => {
+//   if (event.key === "Enter" || event.keyCode === 13) {
+//     event.preventDefault();
+
+//     // Find an interactive element to focus on, such as a button
+//     // const buttonElement = document.getElementById("your-button-id");
+//     const buttonElement = document.getElementsByClassName("webchat__basic-transcript webchat--css-gueac-16qv0no webchat--css-gueac-1tdc372 webchat--css-gueac-1rr4qq7");
+
+//     if (buttonElement) {
+//       buttonElement.focus();
+//     }
+//   }
+// };
+
+// // Add the event listener to your input field
+// const inputField = document.getElementsByClassName(".webchat__send-box-text-box__input");
+// inputField.addEventListener("keydown", hideMobileKeyboardOnReturn);
+
 
 setTimeout(() => {
 let inputbox = document.getElementsByClassName(
 ".webchat__send-box-text-box__input"
 );
 
-hideMobileKeyboardOnReturn();
+hideMobileKeyboardOnReturn(inputbox);
 }, 1000);
 </script>
 </body>
