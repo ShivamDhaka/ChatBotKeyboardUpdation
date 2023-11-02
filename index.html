@@ -446,17 +446,17 @@
               length - 1
             ];
             $(element).trigger("blur");
-            console.log(p);
+            console.log("element we want to shift to focus on:"+p);
 
             p.focus();
             // navigator.virtualKeyboard.hide();
 
-            const shiftPressEvent = new KeyboardEvent("keydown", {
-              key: "Enter",
-              shiftKey: true, // Simulate the Shift key
-            });
-            element.dispatchEvent(shiftPressEvent);
-            console.log("focus on bubble chat and added keypress event");
+            // const shiftPressEvent = new KeyboardEvent("keydown", {
+            //   key: "Enter",
+            //   shiftKey: true, // Simulate the Shift key
+            // });
+            // element.dispatchEvent(shiftPressEvent);
+            // console.log("focus on bubble chat and added keypress event");
           }
         });
       };
