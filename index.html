@@ -430,8 +430,8 @@
         }
       };
 
-      const hideMobileKeyboardOnReturn = (element) => {
-        element.addEventListener("keypress", (event) => {
+      const hideMobileKeyboardOnReturn = async(element) => {
+        await element.addEventListener("keypress", (event) => {
           if (event.key === "Enter" || event.keyCode === 13) {
             event.preventDefault();
             // document.activeElement.blur();
