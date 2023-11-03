@@ -311,9 +311,6 @@
         .catch((err) => console.error("An error occurred: " + err));
     </script>
     <script>
-      <div>
-      <input type="text" class="container" placeholder="Type your message..."></input>
-      </div>
       $("body").on("DOMNodeInserted", function (e) {
         if ($(e.target).hasClass("ac-adaptiveCard")) {
           let originalImages = [
@@ -432,27 +429,77 @@
           inputRef.current.blur();
         }
       };
+      const GenerateID = async () => {
+        const elements = document.getElementsByClassName("webchat__send-box-text-box__input");
+            // Loop through the elements and assign unique IDs
+            console.log(elements.length);
+            for (let i = 0; i < elements.length; i++) {
+              const element = elements[i];
+              console.log("single element");
+              console.log(element);
+              element.id = "custom-element";
+            }
+      }
+      
+      // function fetchDataWhenAvailable() {
+      //   const elements = document.getElementsByClassName('webchat__basic-transcript__activity-indicator webchat__basic-transcript__activity-indicator--focus');
+        
+      //   if (elements.length === 0) {
+      //     setTimeout(fetchDataWhenAvailable, 1000);
+      //   } else {
+      //     const data = fetchYourDataFromElements(elements);
+      //     console.log(data);
+      //   }
+      // }
+    //   const elements = document.getElementsByClassName("webchat__send-box-text-box__input");
 
+    // // Loop through the elements and assign unique IDs
+    // console.log(elements.length);
+    // for (let i = 0; i < elements.length; i++) {
+    //   const element = elements[i];
+    //   console.log("single element");
+    //   console.log(element);
+    //   element.id = "custom-element";
+    // }
       const hideMobileKeyboardOnReturn = async(element) => {
         await element.addEventListener("keypress", (event) => {
-          console.log("Element" + element);
-          console.log("Element Value" + element.value);
+          
+          // console.log("Element" + element);
+          // console.log("Element Value" + element.value);
           if (event.key === "Enter" || event.keyCode === 13) {
             event.preventDefault();
             // document.activeElement.blur();
             // alert("You pressed Enter. You typed: " + element.value);
             // let inputbox = document.getElementsByClassName("webchat__send-box-text-box__input");
-            let length = document.getElementsByClassName(
-              "webchat__bubble__content"
-            ).length;
-            let p = document.getElementsByClassName("webchat__bubble__content")[
-              length - 1
-            ];
-            $(element).trigger("blur");
-            console.log("element we want to shift to focus on: "+p);
-            console.log(p);
-
-            p.focus();
+            // let length = document.getElementsByClassName(
+              //   "webchat__bubble__content"
+              // ).length;
+              // let p = document.getElementsByClassName("webchat__bubble__content")[
+                //   length - 1
+                // ];
+            // $(element).trigger("blur");
+            // console.log("element we want to shift to focus on: "+p);
+            // console.log(p);
+            
+            // p.focus();
+            // inputBox.blur();
+            // console.log(element);
+            // element.blur();
+            // const q = document.getElementsByClassName("refresh-btn");
+            // q.id = "custom-element-0";
+            GenerateID();
+            // const elements = document.getElementsByClassName("webchat__send-box-text-box__input");
+            // // Loop through the elements and assign unique IDs
+            // console.log(elements.length);
+            // for (let i = 0; i < elements.length; i++) {
+            //   const element = elements[i];
+            //   console.log("single element");
+            //   console.log(element);
+            //   element.id = "custom-element";
+            // }
+            const w = document.getElementById("custom-element")
+            console.log("uguweuw  ", w);
+            w.blur();
             // navigator.virtualKeyboard.hide();
 
             // const shiftPressEvent = new KeyboardEvent("keydown", {
@@ -464,7 +511,6 @@
           }
         });
       };
-
       setTimeout(() => {
         let inputbox = document.querySelector(
           ".webchat__send-box-text-box__input"
@@ -475,7 +521,9 @@
     </script>
   </body>
 </html>
-
+<!-- <div>      
+  <input type="text" class="containerrr" id="d" placeholder="Descriptrtion...">
+</div> -->
 <!-- 
 const hideMobileKeyboardOnReturn = (element) => {
   console.log("Clicked", element.value);
